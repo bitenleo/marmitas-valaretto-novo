@@ -1,0 +1,8 @@
+{
+  "date": "30/09/2026",
+  "refogados": ["Abóbora", "Batata doce"],
+  "massas": ["Nhoque"],
+  "carnes": ["Strogonoff de carne", "Steak", "Linguiça Acebolada", "Frango Grelhado"],
+  "arrozOptions": ["Arroz Branco", "Arroz Temperado"],
+  "notice": "Cardápio sujeito à disponibilidade do dia."
+}

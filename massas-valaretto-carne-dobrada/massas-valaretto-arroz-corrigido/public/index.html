@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d7a45" />
+  <title>Marmitas Valaretto • Monte sua marmita</title>
+  <meta name="description" content="Monte sua marmita do seu jeito na Marmitas Valaretto e envie o pedido direto pelo WhatsApp." />
+  <link rel="canonical" href="https://marmitavalaretto.netlify.app/" />
+
+  <!-- Prévia para WhatsApp, Instagram, Facebook e outros compartilhamentos -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Marmitas Valaretto" />
+  <meta property="og:title" content="Marmitas Valaretto • Monte sua marmita" />
+  <meta property="og:description" content="Monte sua marmita do seu jeito e envie o pedido direto pelo WhatsApp." />
+  <meta property="og:url" content="https://marmitavalaretto.netlify.app/" />
+  <meta property="og:image" content="https://marmitavalaretto.netlify.app/assets/marmitas-valaretto-preview-v2.jpg" />
+  <meta property="og:image:secure_url" content="https://marmitavalaretto.netlify.app/assets/marmitas-valaretto-preview-v2.jpg" />
+  <meta property="og:image:url" content="https://marmitavalaretto.netlify.app/assets/marmitas-valaretto-preview-v2.jpg" />
+  <link rel="image_src" href="https://marmitavalaretto.netlify.app/assets/marmitas-valaretto-preview-v2.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Marmitas Valaretto - Monte sua marmita" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Marmitas Valaretto • Monte sua marmita" />
+  <meta name="twitter:description" content="Monte sua marmita do seu jeito e envie o pedido direto pelo WhatsApp." />
+  <meta name="twitter:image" content="https://marmitavalaretto.netlify.app/assets/marmitas-valaretto-preview-v2.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__glow hero__glow--one"></div>
+    <div class="hero__glow hero__glow--two"></div>
+    <div class="container hero__inner">
+      <img class="brand-logo" src="assets/logo.png" alt="Massas Valaretto Rotisserie" />
+      <div class="hero__copy">
+        <span class="eyebrow">Marmita do dia</span>
+        <h1>Monte seu pedido do seu jeito.</h1>
+        <p>Escolha suas marmitas, informe a forma de recebimento e envie o pedido direto pelo WhatsApp.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <section class="order-panel" aria-labelledby="pedido-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow eyebrow--green">Pedido</span>
+          <h2 id="pedido-title">Monte sua marmita</h2>
+        </div>
+        <span id="menuDate" class="date-pill">Carregando cardápio...</span>
+      </div>
+
+      <div class="size-grid" id="sizeGrid">
+        <button class="size-card is-selected" type="button" data-size="mini" aria-pressed="true">
+          <div class="size-card__top"><span class="size-dot size-dot--mini"></span><strong>Mini</strong><span>R$ 20,00</span></div>
+          <p>Até 1 refogado • até 1 massa • 1 carne</p>
+        </button>
+        <button class="size-card" type="button" data-size="medio" aria-pressed="false">
+          <div class="size-card__top"><span class="size-dot size-dot--medio"></span><strong>Médio</strong><span>R$ 25,00</span></div>
+          <p>Até 1 refogado • até 1 massa • 2 porções de carne</p>
+        </button>
+        <button class="size-card" type="button" data-size="grande" aria-pressed="false">
+          <div class="size-card__top"><span class="size-dot size-dot--grande"></span><strong>Grande</strong><span>R$ 35,00</span></div>
+          <p>Até 1 refogado • até 2 massas • 2 porções de carne</p>
+        </button>
+      </div>
+
+      <div class="form-section fixed-card">
+        <div class="form-title-row">
+          <div><span class="step">01</span><h3>Acompanhamentos</h3></div>
+          <span class="helper">Arroz incluso • feijão e farofa opcionais</span>
+        </div>
+        <div class="fixed-list">
+          <div class="fixed-item">
+            <div><span class="fixed-icon">🍚</span><div><strong>Arroz</strong><small>Escolha uma opção</small></div></div>
+            <div id="riceOptions" class="segmented"></div>
+          </div>
+          <div class="fixed-item"><div><span class="fixed-icon">🫘</span><div><strong>Feijão</strong><small>Você pode retirar</small></div></div><label class="switch"><input id="feijao" type="checkbox" checked><span></span></label></div>
+          <div class="fixed-item"><div><span class="fixed-icon">🥣</span><div><strong>Farofa</strong><small>Você pode retirar</small></div></div><label class="switch"><input id="farofa" type="checkbox" checked><span></span></label></div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title-row"><div><span class="step">02</span><h3>Refogado</h3></div><span class="selection-limit" id="refogadoLimit">Escolha 1 ou não queira</span></div>
+        <div id="refogados" class="option-grid"></div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title-row"><div><span class="step">03</span><h3>Massa</h3></div><span class="selection-limit" id="massaLimit">Escolha 1 ou não queira</span></div>
+        <div id="massas" class="option-grid"></div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title-row"><div><span class="step">04</span><h3>Carne</h3></div><span class="selection-limit" id="carneLimit">Escolha 1</span></div>
+        <div id="carnes" class="option-grid option-grid--meats"></div>
+      </div>
+
+      <div class="form-section add-marmita-card">
+        <div class="form-title-row">
+          <div><span class="step">05</span><h3>Adicionar ao pedido</h3></div>
+          <span class="selection-limit">Você pode adicionar várias</span>
+        </div>
+        <div class="add-marmita-row">
+          <label class="qty-field"><span>Quantidade desta marmita</span><input id="quantity" type="number" min="1" max="20" value="1" inputmode="numeric" /></label>
+          <button id="addMarmitaBtn" class="add-marmita-btn" type="button"><span>＋</span><strong>Adicionar marmita ao pedido</strong></button>
+        </div>
+        <div id="builderStatus" class="builder-status" hidden></div>
+
+        <div class="cart-box">
+          <div class="cart-head">
+            <div><strong>Seu pedido</strong><small id="cartCount">0 marmitas</small></div>
+            <button id="clearCartBtn" class="clear-cart-btn" type="button" hidden>Limpar pedido</button>
+          </div>
+          <div id="cartEmpty" class="cart-empty">Nenhuma marmita adicionada ainda.</div>
+          <div id="cartItems" class="cart-items"></div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title-row"><div><span class="step">06</span><h3>Como deseja receber?</h3></div></div>
+        <div class="fulfillment-grid">
+          <button class="fulfillment-card is-selected" type="button" data-mode="pickup" aria-pressed="true">
+            <span class="fulfillment-icon">🏪</span><span><strong>Retirada na loja</strong><small>Sem taxa de entrega</small></span>
+          </button>
+          <button class="fulfillment-card" type="button" data-mode="delivery" aria-pressed="false">
+            <span class="fulfillment-icon">🛵</span><span><strong>Entrega</strong><small>Taxa informada pelo WhatsApp</small></span>
+          </button>
+        </div>
+
+        <div id="deliveryFields" class="delivery-fields" hidden>
+          <div class="delivery-head">
+            <div><strong>Endereço de entrega</strong><small>Preencha os dados separados para o endereço chegar certinho no WhatsApp.</small></div>
+          </div>
+          <div class="address-grid">
+            <label class="cep-field">
+              <span>CEP</span>
+              <input id="deliveryCep" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="15000-000" />
+            </label>
+            <label class="street-field">
+              <span>Endereço / Rua</span>
+              <input id="deliveryStreet" type="text" autocomplete="address-line1" placeholder="Ex.: Rua José Bonifácio" />
+            </label>
+            <label>
+              <span>Número</span>
+              <input id="deliveryNumber" type="text" inputmode="numeric" placeholder="110" />
+            </label>
+            <label class="address-wide">
+              <span>Complemento <small>(opcional)</small></span>
+              <input id="deliveryComplement" type="text" autocomplete="address-line2" placeholder="Apto, bloco, referência..." />
+            </label>
+          </div>
+          <p class="delivery-note delivery-note--highlight">A taxa de entrega será informada pelo atendimento no WhatsApp antes da confirmação do pedido.</p>
+        </div>
+      </div>
+
+      <div class="form-section payment-section">
+        <div class="form-title-row">
+          <div><span class="step">07</span><h3>Forma de pagamento</h3></div>
+          <span class="helper" id="paymentHelper">Escolha uma opção</span>
+        </div>
+        <div class="payment-grid">
+          <button class="payment-card" type="button" data-payment="card">
+            <span class="payment-icon">💳</span><span><strong>Cartão</strong><small>Crédito ou débito</small></span>
+          </button>
+          <button class="payment-card" type="button" data-payment="cash">
+            <span class="payment-icon">💵</span><span><strong>Dinheiro</strong><small>Pagamento no recebimento</small></span>
+          </button>
+          <button class="payment-card" type="button" data-payment="pix">
+            <span class="payment-icon">◈</span><span><strong>PIX</strong><small>Pagamento no recebimento</small></span>
+          </button>
+        </div>
+        <div id="cashChangeWrap" class="cash-change" hidden>
+          <label><span>Troco para quanto? <small>(opcional)</small></span><input id="changeFor" type="text" inputmode="decimal" placeholder="Ex.: 100,00"></label>
+        </div>
+        <p id="pixNotice" class="payment-notice">Não há pagamento antecipado pelo site.</p>
+      </div>
+
+      <div class="form-section customer-card">
+        <div class="form-title-row"><div><span class="step">08</span><h3>Seus dados</h3></div></div>
+        <div class="input-grid customer-input-grid">
+          <label><span>Nome</span><input id="customerName" type="text" autocomplete="name" placeholder="Seu nome" /></label>
+        </div>
+      </div>
+
+      <div class="price-summary">
+        <div><span>Subtotal das marmitas</span><strong id="subtotalValue">R$ 0,00</strong></div>
+        <div><span>Entrega</span><strong id="deliveryValue">Grátis (retirada)</strong></div>
+        <div class="price-summary__total"><span>Total do pedido</span><strong id="totalValue">R$ 0,00</strong></div>
+      </div>
+
+      <div id="formError" class="form-error" role="alert" hidden></div>
+      <button id="whatsappBtn" class="whatsapp-btn" type="button">
+        <span class="whatsapp-icon">✆</span>
+        <span><strong>Enviar pedido no WhatsApp</strong><small>17 98113-0555</small></span>
+        <span class="arrow">→</span>
+      </button>
+      <p id="menuNotice" class="notice"></p>
+    </section>
+
+    <aside class="menu-card">
+      <div class="menu-card__header">
+        <div><span class="eyebrow eyebrow--light">Hoje tem</span><h2>Cardápio do dia</h2></div>
+        <span class="fresh-badge">Feito hoje</span>
+      </div>
+      <div class="menu-card__body">
+        <div class="menu-group"><span class="menu-emoji">🥗</span><div><h3>Refogados</h3><ul id="summaryRefogados"></ul></div></div>
+        <div class="menu-group"><span class="menu-emoji">🍝</span><div><h3>Massas</h3><ul id="summaryMassas"></ul></div></div>
+        <div class="menu-group"><span class="menu-emoji">🍖</span><div><h3>Carnes</h3><ul id="summaryCarnes"></ul></div></div>
+      </div>
+      <div class="menu-card__footer">
+        <strong>Mini R$20 • Médio R$25 • Grande R$35</strong>
+        <span>Arroz incluso. Feijão, farofa, refogado e massa podem ser retirados.</span>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><img src="assets/logo.png" alt="Massas Valaretto" /><p>Pedido de marmita • atendimento via WhatsApp</p></div>
+  </footer>
+  <script src="assets/app.js?v=20261012-1" defer></script>
+</body>
+</html>

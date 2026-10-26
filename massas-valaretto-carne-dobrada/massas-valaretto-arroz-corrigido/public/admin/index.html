@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0d7a45" />
+  <title>Editar cardápio • Massas Valaretto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--g:#087943;--gd:#055d34;--ink:#1f2a24;--muted:#6c746f;--line:#e3e6e2;--bg:#f4f5f1}*{box-sizing:border-box}body{margin:0;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink)}.wrap{width:min(920px,calc(100% - 28px));margin:34px auto 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:14px}.brand img{width:100px}.brand h1{font-size:1.45rem;margin:0}.brand p{margin:4px 0 0;color:var(--muted);font-size:.84rem}.back{color:var(--gd);text-decoration:none;font-weight:800;font-size:.85rem}.card{background:#fff;border:1px solid #e7e8e4;border-radius:22px;box-shadow:0 18px 55px rgba(20,40,30,.08);padding:24px;margin-bottom:16px}.card h2{margin:0 0 16px;font-size:1.05rem}.login{max-width:480px;margin:70px auto}.login img{display:block;width:180px;margin:0 auto 18px}.login h1{text-align:center;margin:0}.login p{text-align:center;color:var(--muted)}label{display:grid;gap:6px;font-size:.8rem;font-weight:800;color:#59635d}input,textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px 13px;outline:none;font:inherit;background:#fff}input:focus,textarea:focus{border-color:var(--g);box-shadow:0 0 0 4px rgba(8,121,67,.08)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.wide{grid-column:1/-1}.help{font-size:.75rem;color:var(--muted);font-weight:500}.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}.btn-primary{background:linear-gradient(135deg,#13a45c,#087943);color:#fff;box-shadow:0 10px 24px rgba(8,121,67,.18)}.btn-ghost{background:#eef5f0;color:var(--gd)}.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}.message{padding:11px 13px;border-radius:10px;font-size:.82rem;font-weight:700;margin-top:12px}.ok{background:#ecf9f1;color:#086b3d}.err{background:#fff0ee;color:#a52a21}.hidden{display:none!important}.status{display:inline-flex;align-items:center;gap:7px;background:#edf7f1;color:var(--gd);padding:7px 10px;border-radius:999px;font-size:.74rem;font-weight:800}.status:before{content:"";width:7px;height:7px;border-radius:50%;background:#17a85f}.hint-box{background:#f7f8f5;border:1px dashed #dce0dc;border-radius:12px;padding:12px 14px;color:var(--muted);font-size:.78rem;line-height:1.55}@media(max-width:650px){.top{align-items:flex-start}.brand img{width:74px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.card{padding:18px}.actions{flex-direction:column}.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <section id="loginView" class="wrap login">
+    <img src="../assets/logo.png" alt="Massas Valaretto" />
+    <div class="card">
+      <h1>Editar cardápio</h1>
+      <p>Use a senha definida no painel da Netlify.</p>
+      <label>Senha do administrador<input id="password" type="password" autocomplete="current-password" placeholder="Digite a senha" /></label>
+      <button id="loginBtn" class="btn btn-primary" style="width:100%;margin-top:12px">Entrar</button>
+      <div id="loginMessage" class="message err hidden"></div>
+    </div>
+  </section>
+
+  <main id="editorView" class="wrap hidden">
+    <div class="top">
+      <div class="brand"><img src="../assets/logo.png" alt="Massas Valaretto"><div><h1>Cardápio do dia</h1><p>Atualize aqui e salve. O site muda na hora.</p></div></div>
+      <a class="back" href="../" target="_blank">Ver site ↗</a>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px"><h2 style="margin:0">Informações gerais</h2><span class="status">Editor online</span></div>
+      <div class="grid">
+        <label>Data do cardápio<input id="date" type="text" placeholder="30/09/2026"></label>
+        <label>Opções de arroz<textarea id="rice" rows="3" placeholder="Arroz Branco\nArroz Temperado"></textarea><span class="help">Coloque uma opção por linha. Também aceitamos vírgula ou /.</span></label>
+        <label class="wide">Aviso abaixo do pedido<input id="notice" type="text" placeholder="Cardápio sujeito à disponibilidade do dia."></label>
+      </div>
+    </div>
+    <div class="card">
+      <h2>🥗 Refogados</h2>
+      <label>Um item por linha<textarea id="refogados" rows="5" placeholder="Abóbora\nBatata doce"></textarea></label>
+    </div>
+    <div class="card">
+      <h2>🍝 Massas</h2>
+      <label>Um item por linha<textarea id="massas" rows="5" placeholder="Nhoque\nTalharim ao sugo"></textarea></label>
+      <div class="hint-box">A marmita Grande permite escolher até 2 massas. Se no dia houver somente 1 massa cadastrada, o site aceitará a única opção disponível.</div>
+    </div>
+    <div class="card">
+      <h2>🍖 Carnes</h2>
+      <div class="grid">
+        <label>Carne 1<input id="carne1" type="text" placeholder="Ex.: Strogonoff de carne"></label>
+        <label>Carne 2<input id="carne2" type="text" placeholder="Ex.: Steak"></label>
+        <label>Carne 3<input id="carne3" type="text" placeholder="Ex.: Frango grelhado"></label>
+        <label>Carne 4<input id="carne4" type="text" placeholder="Ex.: Linguiça acebolada"></label>
+        <label class="wide">Carne 5 <span class="help">(opcional)</span><input id="carne5" type="text" placeholder="Use quando o cardápio do dia tiver uma 5ª opção"></label>
+      </div>
+      <div class="hint-box" style="margin-top:14px">Você pode cadastrar de 1 a 5 opções de carnes por dia. Deixe os campos que não usar em branco. A Mini continua escolhendo 1 carne; Médio e Grande continuam escolhendo 2 carnes.</div>
+    </div>
+    <div class="card">
+      <div class="hint-box"><strong>Regras do site:</strong> Mini = até 1 refogado, até 1 massa, 1 carne. Médio = até 1 refogado, até 1 massa, 2 carnes. Grande = até 1 refogado, até 2 massas, 2 carnes. Feijão e farofa são opcionais.</div>
+      <div class="actions"><button id="reloadBtn" class="btn btn-ghost">Descartar alterações</button><button id="saveBtn" class="btn btn-primary">Salvar cardápio</button></div>
+      <div id="saveMessage" class="message hidden"></div>
+    </div>
+  </main>
+  <script>
+    let adminPassword = '';
+    const el = (id) => document.getElementById(id);
+    const lines = (value) => value.split('\n').map(v => v.trim()).filter(Boolean);
+    const riceOptions = (value) => value.split(/[\n,;/|]+/).map(v => v.trim()).filter(Boolean);
+    async function getMenu(){
+      let r = await fetch('/api/menu',{cache:'no-store'});
+      if(!r.ok){ r = await fetch('/menu.json',{cache:'no-store'}); }
+      return r.json();
+    }
+    function fill(m){
+      el('date').value=m.date||'';
+      el('rice').value=riceOptions((m.arrozOptions||['Arroz Branco']).join('\n')).join('\n');
+      el('notice').value=m.notice||'';
+      el('refogados').value=(m.refogados||[]).join('\n');
+      el('massas').value=(m.massas||[]).join('\n');
+      const carnes=(m.carnes||[]).slice(0,5);
+      for(let i=1;i<=5;i++) el('carne'+i).value=carnes[i-1]||'';
+    }
+    async function login(){
+      adminPassword=el('password').value;
+      if(!adminPassword) return show('loginMessage','Digite a senha.',false);
+      // We validate by sending a non-mutating auth check.
+      const r=await fetch('/api/menu?auth=1',{headers:{'x-admin-password':adminPassword}}).catch(()=>null);
+      if(!r || r.status===401) return show('loginMessage','Senha incorreta.',false);
+      const m=await getMenu(); fill(m);
+      el('loginView').classList.add('hidden'); el('editorView').classList.remove('hidden');
+    }
+    async function save(){
+      const payload={
+        date:el('date').value.trim(),
+        arrozOptions:riceOptions(el('rice').value),
+        notice:el('notice').value.trim(),
+        refogados:lines(el('refogados').value),
+        massas:lines(el('massas').value),
+        carnes:[1,2,3,4,5].map(i=>el('carne'+i).value.trim()).filter(Boolean)
+      };
+      el('saveBtn').disabled=true; el('saveBtn').textContent='Salvando...';
+      try{
+        const r=await fetch('/api/menu',{method:'POST',headers:{'content-type':'application/json','x-admin-password':adminPassword},body:JSON.stringify(payload)});
+        if(r.status===401) throw new Error('Senha incorreta. Entre novamente.');
+        if(!r.ok) throw new Error('Não foi possível salvar. Verifique a configuração da Netlify.');
+        show('saveMessage','Cardápio salvo. O site já está atualizado.',true);
+      }catch(e){show('saveMessage',e.message,false)}finally{el('saveBtn').disabled=false;el('saveBtn').textContent='Salvar cardápio'}
+    }
+    function show(id,msg,ok){const n=el(id);n.textContent=msg;n.className='message '+(ok?'ok':'err')}
+    el('loginBtn').addEventListener('click',login);
+    el('password').addEventListener('keydown',e=>{if(e.key==='Enter') login()});
+    el('saveBtn').addEventListener('click',save);
+    el('reloadBtn').addEventListener('click',async()=>fill(await getMenu()));
+  </script>
+</body>
+</html>
